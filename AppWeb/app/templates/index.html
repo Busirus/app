@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BlackFlag</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Liens de navigation -->
+        </nav>
+    </header>
+    <main>
+        <section>
+            {% for post in posts.items %}
+            <article>
+                <h2>{{ post.author.username }}</h2>
+                <p>{{ post.content }}</p>
+                {% if post.image_path %}
+                <img src="{{ url_for('static', filename='uploads/' + post.image_path) }}" alt="Image">
+                {% endif %}
+                <time>{{ post.timestamp }}</time>
+            </article>
+            {% endfor %}
+        </section>
+        <aside>
+            <!-- Contenu supplémentaire, comme une liste d'utilisateurs ou un profil -->
+        </aside>
+    </main>
+    <footer>
+        <nav>
+            {% if posts.has_prev %}
+            <a href="{{ url_for('index', page=posts.prev_num) }}">Précédent</a>
+            {% endif %}
+            {% if posts.has_next %}
+            <a href="{{ url_for('index', page=posts.next_num) }}">Suivant</a>
+            {% endif %}
+        </nav>
+    </footer>
+</body>
+</html>

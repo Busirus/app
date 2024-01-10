@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Create Post</title>
+</head>
+<body>
+    <h2>Create Post</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" required></textarea>
+        <label for="file">Upload Image:</label>
+        <input type="file" id="file" name="file">
+        <label for="captcha">{{ captcha_question }}</label>
+        <input type="text" id="captcha" name="captcha" required>
+        <button type="submit">Post</button>
+    </form>
+</body>
+</html>
